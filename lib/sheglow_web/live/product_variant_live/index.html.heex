@@ -1,0 +1,44 @@
+<.header>
+  Listing Product variants
+  <:actions>
+    <.link patch={~p"/product_variants/new"}>
+      <.button>New Product variant</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="product_variants"
+  rows={@streams.product_variants}
+  row_click={fn {_id, product_variant} -> JS.navigate(~p"/product_variants/#{product_variant}") end}
+>
+  <:col :let={{_id, product_variant}} label="Color name">{product_variant.color_name}</:col>
+  <:col :let={{_id, product_variant}} label="Color hex">{product_variant.color_hex}</:col>
+  <:col :let={{_id, product_variant}} label="Size">{product_variant.size}</:col>
+  <:col :let={{_id, product_variant}} label="Stock quantity">{product_variant.stock_quantity}</:col>
+  <:action :let={{_id, product_variant}}>
+    <div class="sr-only">
+      <.link navigate={~p"/product_variants/#{product_variant}"}>Show</.link>
+    </div>
+    <.link patch={~p"/product_variants/#{product_variant}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, product_variant}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: product_variant.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="product_variant-modal" show on_cancel={JS.patch(~p"/product_variants")}>
+  <.live_component
+    module={SheglowWeb.ProductVariantLive.FormComponent}
+    id={@product_variant.id || :new}
+    title={@page_title}
+    action={@live_action}
+    product_variant={@product_variant}
+    patch={~p"/product_variants"}
+  />
+</.modal>

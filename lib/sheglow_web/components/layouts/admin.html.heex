@@ -1,0 +1,23 @@
+<div class="flex h-screen overflow-hidden">
+  <.admin_sidebar
+    current_path={@current_path}
+    current_user={Map.get(assigns, :current_user)}
+    counts={
+      Map.merge(
+        %{
+          products: Sheglow.Repo.aggregate(Sheglow.Products.Product, :count),
+          collections: Sheglow.Repo.aggregate(Sheglow.Collections.Collection, :count),
+          bundles: Sheglow.Repo.aggregate(Sheglow.Bundles.Bundle, :count),
+          orders: Map.get(Sheglow.Orders.count_by_status(), "all", 0),
+          customers: Sheglow.Customers.count_customers(),
+          promotions: Sheglow.Promotions.count_promo_codes(),
+          open_chats: Sheglow.Chat.count_open_sessions()
+        },
+        Map.get(assigns, :counts, %{})
+      )
+    }
+  />
+  <main class="flex-1 p-4 overflow-y-auto">
+    {@inner_content}
+  </main>
+</div>

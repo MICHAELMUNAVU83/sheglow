@@ -1,0 +1,42 @@
+<.header>
+  Listing Product images
+  <:actions>
+    <.link patch={~p"/product_images/new"}>
+      <.button>New Product image</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="product_images"
+  rows={@streams.product_images}
+  row_click={fn {_id, product_image} -> JS.navigate(~p"/product_images/#{product_image}") end}
+>
+  <:col :let={{_id, product_image}} label="Image">{product_image.image}</:col>
+  <:col :let={{_id, product_image}} label="Position">{product_image.position}</:col>
+  <:action :let={{_id, product_image}}>
+    <div class="sr-only">
+      <.link navigate={~p"/product_images/#{product_image}"}>Show</.link>
+    </div>
+    <.link patch={~p"/product_images/#{product_image}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, product_image}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: product_image.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="product_image-modal" show on_cancel={JS.patch(~p"/product_images")}>
+  <.live_component
+    module={SheglowWeb.ProductImageLive.FormComponent}
+    id={@product_image.id || :new}
+    title={@page_title}
+    action={@live_action}
+    product_image={@product_image}
+    patch={~p"/product_images"}
+  />
+</.modal>

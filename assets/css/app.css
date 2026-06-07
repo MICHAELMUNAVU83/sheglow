@@ -1,0 +1,406 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Instrument+Sans:ital,wght@0,300;0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* ── Brand tokens ─────────────────────────────────────────────────────── */
+/* These defaults are overridden at runtime by root.html.heex via SiteSettings */
+:root {
+  --brand-primary:      #C8001F;
+  --brand-primary-dark: #9B0017;
+  --brand-black:        #111111;
+
+  /* Legacy aliases kept for backward compatibility */
+  --brand-red:   #C8001F;
+
+  /* Font stacks — overridden per-tenant via SiteSettings */
+  --font-script:  "Dancing Script", cursive;
+  --font-serif:   "Playfair Display", Georgia, serif;
+  --font-sans:    "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-ui:      "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Semantic aliases used by brand utilities below */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body:    "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Brand utility classes (CSS-var driven, always themeable) ─────────── */
+.btn-brand {
+  background-color: var(--brand-primary);
+  color: #fff;
+  transition: background-color 0.15s;
+}
+.btn-brand:hover { background-color: var(--brand-primary-dark); }
+
+.text-brand   { color: var(--brand-primary); }
+.bg-brand     { background-color: var(--brand-primary); }
+.border-brand { border-color: var(--brand-primary); }
+
+.font-heading-brand { font-family: var(--font-heading); }
+.font-body-brand    { font-family: var(--font-body); }
+.font-script-brand  { font-family: var(--font-script); }
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* ---------------------------------------------------------------------------
+   Instrument Sans & Inter – font-family + weight utilities
+   Use: .font-instrument, .font-instrument-medium, .font-instrument-bold, etc.
+   --------------------------------------------------------------------------- */
+.font-instrument-light {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+}
+.font-instrument {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+}
+.font-instrument-medium {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+}
+.font-instrument-semibold {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+.font-instrument-bold {
+  font-family: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.font-inter-thin {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 100;
+}
+.font-inter-extralight {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 200;
+}
+.font-inter-light {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+}
+.font-inter {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+}
+.font-inter-medium {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+}
+.font-inter-semibold {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+.font-inter-bold {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+}
+.font-inter-extrabold {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+}
+.font-inter-black {
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+}
+
+/* ── Site-wide base ───────────────────────────────────────────────────── */
+body {
+  font-family: var(--font-ui);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Brand / script logo ─────────────────────────────────────────────── */
+/* The flowing "Sheglow." signature matches the logo script */
+.brand-logo,
+.font-script {
+  font-family: var(--font-script) !important;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* ── Serif editorial headings ────────────────────────────────────────── */
+.font-serif-display {
+  font-family: var(--font-serif);
+}
+
+/* ── Frontend store pages ─────────────────────────────────────────────── */
+.page-typography {
+  font-family: var(--font-ui);
+  font-weight: 400;
+}
+
+/* h1 + h2 → Playfair Display (editorial, high-fashion) */
+.page-typography h1,
+.page-typography h2 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.page-typography h1 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.page-typography h2 {
+  font-weight: 700;
+}
+
+/* h3–h6 → Instrument Sans (clean, structured) */
+.page-typography h3,
+.page-typography h4,
+.page-typography h5,
+.page-typography h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+/* Nav links, buttons, UI controls → Inter */
+.page-typography header nav a,
+.page-typography header button:not([aria-label]),
+.page-typography header .text-sm.font-medium,
+.page-typography a.rounded-full[href],
+.page-typography button.rounded-full,
+.page-typography .rounded-full.border.px-4.py-2,
+.page-typography main select,
+.page-typography .category-sidebar button {
+  font-family: var(--font-ui);
+  font-weight: 500;
+}
+
+/* Search placeholder */
+.page-typography header input::placeholder {
+  font-family: var(--font-ui);
+  font-weight: 300;
+}
+
+/* Uppercase micro labels (SPRING 2025, etc.) → Instrument Sans */
+.page-typography .text-xs.uppercase,
+.page-typography .text-xs.font-semibold.uppercase {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+
+/* Hero stat numbers → Playfair Display italic for drama */
+.page-typography .hero-content p.text-3xl,
+.page-typography .hero-content p.text-4xl {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 600;
+}
+
+/* Countdown numbers → Instrument Sans tabular */
+.page-typography #countdown-section .font-display {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Body copy */
+.page-typography p:not(.text-3xl):not(.text-4xl):not(.text-2xl) {
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Product names in cards → Instrument Sans */
+.page-typography .product-name {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+/* Section eyebrows / taglines → small script accent */
+.font-tagline {
+  font-family: var(--font-script);
+  font-weight: 600;
+  color: var(--brand-red);
+}
+
+/* Remove Swiper's default arrow content */
+.new-arrivals-swiper .swiper-button-prev::after,
+.new-arrivals-swiper .swiper-button-next::after {
+  content: none;
+}
+
+/* Navigation buttons */
+.new-arrivals-nav-btn {
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.new-arrivals-nav-btn.opacity-40 {
+  opacity: 0.4;
+}
+
+.related-products-swiper .swiper-button-prev::after,
+.related-products-swiper .swiper-button-next::after {
+  content: none;
+}
+
+.related-products-nav-btn {
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.related-products-nav-btn.opacity-40 {
+  opacity: 0.4;
+}
+
+/* Video banner: slow, smooth overlay reveal */
+#video-reveal-container {
+  will-change: clip-path;
+  transition: clip-path 1.2s ease-out;
+}
+
+/* Countdown section */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Optional: Add a custom display font for the numbers */
+/* If you're using a Google Font like Inter or DM Sans, the numbers will look great */
+
+/* Ensure numbers don't jump around */
+#countdown-days,
+#countdown-hours,
+#countdown-minutes,
+#countdown-seconds {
+  min-width: 1.5ch;
+  display: inline-block;
+}
+
+/* Dot pattern animation (optional) */
+@keyframes dot-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Footer logo marquee - slower animation */
+@keyframes marquee-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-slow {
+  animation: marquee-slow 30s linear infinite;
+}
+
+/* Custom scrollbar for bundle section */
+.lg\:overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lg\:overflow-y-auto::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.lg\:overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.lg\:overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Hide scrollbar but keep functionality (optional) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hero background marquee - very slow */
+@keyframes marquee-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-marquee-slow {
+  animation: marquee-slow 40s linear infinite;
+}
+
+/* Hero reveal */
+#hero-overlay {
+  will-change: clip-path;
+}
+
+#hero-image {
+  will-change: transform;
+}
+
+.hero-content {
+  will-change: opacity, transform;
+}
+
+/* Marquee animation */
+@keyframes marquee-slow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+.animate-marquee-slow {
+  animation: marquee-slow 40s linear infinite;
+}
+
+/* Scroll reveal: initial state + transition, then .in-view for final state */
+[data-motion-reveal] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-motion-reveal].in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-motion-reveal][data-motion-direction="down"] {
+  transform: translateY(-28px);
+}
+[data-motion-reveal][data-motion-direction="down"].in-view {
+  transform: translateY(0);
+}
+
+[data-motion-reveal][data-motion-direction="left"] {
+  transform: translateX(28px);
+}
+[data-motion-reveal][data-motion-direction="left"].in-view {
+  transform: translateX(0);
+}
+
+[data-motion-reveal][data-motion-direction="right"] {
+  transform: translateX(-28px);
+}
+[data-motion-reveal][data-motion-direction="right"].in-view {
+  transform: translateX(0);
+}
+
+/* Category page: mobile filters sidebar */
+@media (max-width: 1023px) {
+  .category-sidebar {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+}

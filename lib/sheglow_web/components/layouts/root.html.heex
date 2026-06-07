@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" class="[scrollbar-gutter:stable] scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+
+    <%!-- Page title --%>
+    <.live_title default="SheGlow UG | Healthy Skin, Confident You" suffix=" | SheGlow UG">
+      {assigns[:page_title]}
+    </.live_title>
+
+    <%!-- Primary SEO --%>
+    <meta
+      name="description"
+      content={
+        assigns[:meta_description] ||
+          "SheGlow UG offers carefully selected skincare essentials that nourish, protect, and enhance your natural glow."
+      }
+    />
+    <meta
+      name="keywords"
+      content="SheGlow UG, skincare Uganda, cleanser, toner, moisturizer, sunscreen, glow routine, beauty Kampala"
+    />
+    <meta name="author" content="SheGlow UG" />
+    <meta name="robots" content="index, follow" />
+
+    <%!-- Open Graph (Facebook / WhatsApp previews) --%>
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SheGlow UG" />
+    <meta
+      property="og:title"
+      content={assigns[:page_title] || "SheGlow UG | Healthy Skin, Confident You"}
+    />
+    <meta
+      property="og:description"
+      content={
+        assigns[:meta_description] ||
+          "Quality skincare you can trust, with visible results you can see."
+      }
+    />
+    <meta property="og:image" content={assigns[:og_image] || "/images/sheglow-logo.png"} />
+    <meta property="og:url" content={assigns[:canonical_url] || "https://sheglowug.com"} />
+
+    <%!-- Twitter / X Card --%>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@sheglowug" />
+    <meta
+      name="twitter:title"
+      content={assigns[:page_title] || "SheGlow UG | Healthy Skin, Confident You"}
+    />
+    <meta
+      name="twitter:description"
+      content={
+        assigns[:meta_description] ||
+          "Carefully selected skincare essentials for healthy, radiant skin."
+      }
+    />
+    <meta name="twitter:image" content={assigns[:og_image] || "/images/sheglow-logo.png"} />
+
+    <%!-- Favicon --%>
+    <link rel="icon" type="image/png" href="/images/sheglow-logo.png" />
+    <link rel="apple-touch-icon" href="/images/sheglow-logo.png" />
+
+    <%!-- Fonts & Styles --%>
+    <% settings = Sheglow.SiteSettings.get() %>
+    <% primary_color =
+      if settings.primary_color in [nil, "", "#C8001F"],
+        do: "#B65C78",
+        else: settings.primary_color %>
+    <% heading_font =
+      if settings.font_heading in [nil, ""], do: "Playfair Display", else: settings.font_heading %>
+    <% body_font =
+      if settings.font_body in [nil, "", "Instrument Sans"],
+        do: "Poppins",
+        else: settings.font_body %>
+    <% script_font =
+      if settings.font_script in [nil, ""], do: "Dancing Script", else: settings.font_script %>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href={Sheglow.SiteSettings.google_fonts_url([body_font, heading_font, script_font])}
+    />
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+    <%!-- Dynamic brand CSS variables — overrides defaults in app.css --%>
+    <style>
+      :root {
+        --brand-primary: <%= primary_color %>;
+        --brand-primary-dark: color-mix(in srgb, <%= primary_color %> 72%, #4a2131);
+        --brand-secondary: #8f3657;
+        --brand-surface: #fff7f8;
+        --brand-surface-soft: #f6e7ea;
+        --brand-border: #e7c8d1;
+        --brand-ink: #40212d;
+        --font-heading: "<%= heading_font %>", Georgia, serif;
+        --font-body: "<%= body_font %>", ui-sans-serif, system-ui, sans-serif;
+        --font-script: "<%= script_font %>", cursive;
+      }
+      /* Apply brand fonts */
+      body { font-family: var(--font-body); }
+      h1, h2, h3, h4, h5 { font-family: var(--font-heading); }
+      .font-script, .brand-script { font-family: var(--font-script) !important; }
+      body {
+        background:
+          radial-gradient(circle at top right, rgba(231, 200, 209, 0.55), transparent 32%),
+          linear-gradient(180deg, #fffdfd 0%, var(--brand-surface) 100%);
+        color: var(--brand-ink);
+      }
+      /* Override all hardcoded Tailwind brand-color classes */
+      .bg-\[\#C8001F\]            { background-color: var(--brand-primary) !important; }
+      .text-\[\#C8001F\]          { color: var(--brand-primary) !important; }
+      .border-\[\#C8001F\]        { border-color: var(--brand-primary) !important; }
+      .ring-\[\#C8001F\]          { --tw-ring-color: var(--brand-primary) !important; }
+      .from-\[\#C8001F\]          { --tw-gradient-from: var(--brand-primary) !important; }
+      .to-\[\#C8001F\]            { --tw-gradient-to: var(--brand-primary) !important; }
+      .hover\:bg-\[\#C8001F\]:hover    { background-color: var(--brand-primary) !important; }
+      .hover\:text-\[\#C8001F\]:hover  { color: var(--brand-primary) !important; }
+      .hover\:border-\[\#C8001F\]:hover { border-color: var(--brand-primary) !important; }
+      .focus\:border-\[\#C8001F\]\/60:focus { border-color: color-mix(in srgb, var(--brand-primary) 60%, transparent) !important; }
+      .focus\:ring-\[\#C8001F\]\/30:focus { --tw-ring-color: color-mix(in srgb, var(--brand-primary) 30%, transparent) !important; }
+      /* Opacity variants */
+      .bg-\[\#C8001F\]\/3  { background-color: color-mix(in srgb, var(--brand-primary)  3%, transparent) !important; }
+      .bg-\[\#C8001F\]\/5  { background-color: color-mix(in srgb, var(--brand-primary)  5%, transparent) !important; }
+      .bg-\[\#C8001F\]\/10 { background-color: color-mix(in srgb, var(--brand-primary) 10%, transparent) !important; }
+      .bg-\[\#C8001F\]\/20 { background-color: color-mix(in srgb, var(--brand-primary) 20%, transparent) !important; }
+      .text-\[\#C8001F\]\/40 { color: color-mix(in srgb, var(--brand-primary) 40%, transparent) !important; }
+      .text-\[\#C8001F\]\/50 { color: color-mix(in srgb, var(--brand-primary) 50%, transparent) !important; }
+      .text-\[\#C8001F\]\/70 { color: color-mix(in srgb, var(--brand-primary) 70%, transparent) !important; }
+      .border-\[\#C8001F\]\/30 { border-color: color-mix(in srgb, var(--brand-primary) 30%, transparent) !important; }
+      .border-\[\#C8001F\]\/40 { border-color: color-mix(in srgb, var(--brand-primary) 40%, transparent) !important; }
+      .shadow-\[\#C8001F\]\/10 { --tw-shadow-color: color-mix(in srgb, var(--brand-primary) 10%, transparent) !important; }
+      .hover\:shadow-\[\#C8001F\]\/10:hover { --tw-shadow-color: color-mix(in srgb, var(--brand-primary) 10%, transparent) !important; }
+      .hover\:bg-\[\#C8001F\]\/5:hover { background-color: color-mix(in srgb, var(--brand-primary) 5%, transparent) !important; }
+      .hover\:border-\[\#C8001F\]:hover { border-color: var(--brand-primary) !important; }
+      .group:hover .group-hover\:text-\[\#C8001F\] { color: var(--brand-primary) !important; }
+      .group:hover .group-hover\:border-\[\#C8001F\] { border-color: var(--brand-primary) !important; }
+      /* Hover/focus dark states — were hardcoded as red-800 */
+      .hover\:bg-red-800:hover { background-color: var(--brand-primary-dark) !important; }
+      .bg-red-800 { background-color: var(--brand-primary-dark) !important; }
+    </style>
+  </head>
+  <body class="bg-white">
+    {@inner_content}
+  </body>
+</html>

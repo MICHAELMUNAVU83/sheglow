@@ -1,0 +1,27 @@
+<.header>
+  Product image {@product_image.id}
+  <:subtitle>This is a product_image record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/product_images/#{@product_image}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit product_image</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Image">{@product_image.image}</:item>
+  <:item title="Position">{@product_image.position}</:item>
+</.list>
+
+<.back navigate={~p"/product_images"}>Back to product_images</.back>
+
+<.modal :if={@live_action == :edit} id="product_image-modal" show on_cancel={JS.patch(~p"/product_images/#{@product_image}")}>
+  <.live_component
+    module={SheglowWeb.ProductImageLive.FormComponent}
+    id={@product_image.id}
+    title={@page_title}
+    action={@live_action}
+    product_image={@product_image}
+    patch={~p"/product_images/#{@product_image}"}
+  />
+</.modal>

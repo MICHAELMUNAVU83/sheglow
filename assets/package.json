@@ -1,0 +1,8 @@
+{
+  "name": "sheglow-assets",
+  "private": true,
+  "dependencies": {
+    "chart.js": "^4.5.1",
+    "motion": "^11.11.17"
+  }
+}

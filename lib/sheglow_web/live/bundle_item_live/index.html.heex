@@ -1,0 +1,40 @@
+<.header>
+  Listing Bundle items
+  <:actions>
+    <.link patch={~p"/bundle_items/new"}>
+      <.button>New Bundle item</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="bundle_items"
+  rows={@streams.bundle_items}
+  row_click={fn {_id, bundle_item} -> JS.navigate(~p"/bundle_items/#{bundle_item}") end}
+>
+  <:action :let={{_id, bundle_item}}>
+    <div class="sr-only">
+      <.link navigate={~p"/bundle_items/#{bundle_item}"}>Show</.link>
+    </div>
+    <.link patch={~p"/bundle_items/#{bundle_item}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, bundle_item}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: bundle_item.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal :if={@live_action in [:new, :edit]} id="bundle_item-modal" show on_cancel={JS.patch(~p"/bundle_items")}>
+  <.live_component
+    module={SheglowWeb.BundleItemLive.FormComponent}
+    id={@bundle_item.id || :new}
+    title={@page_title}
+    action={@live_action}
+    bundle_item={@bundle_item}
+    patch={~p"/bundle_items"}
+  />
+</.modal>
