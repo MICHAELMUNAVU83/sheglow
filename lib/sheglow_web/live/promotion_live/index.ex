@@ -512,7 +512,7 @@ defmodule SheglowWeb.PromotionLive.Index do
               </h2>
               <p class="mt-0.5 text-xs text-gray-400">
                 {length(@selected_orders)} orders ·
-                KES {fmt(@selected_revenue)} total revenue (paid+)
+                UGX {fmt(@selected_revenue)} total revenue (paid+)
               </p>
             </div>
             <button phx-click="close_orders" class="rounded-lg p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-700">
@@ -537,9 +537,9 @@ defmodule SheglowWeb.PromotionLive.Index do
                     <p class="truncate font-mono text-[10px] text-gray-400">{order.reference}</p>
                   </div>
                   <div class="text-right">
-                    <p class="text-sm font-bold text-gray-900">KES {fmt(order.total_amount)}</p>
+                    <p class="text-sm font-bold text-gray-900">UGX {fmt(order.total_amount)}</p>
                     <%= if order.discount_amount > 0 do %>
-                      <p class="text-[10px] font-medium text-green-600">-KES {fmt(order.discount_amount)}</p>
+                      <p class="text-[10px] font-medium text-green-600">-UGX {fmt(order.discount_amount)}</p>
                     <% end %>
                   </div>
                   <span class={[

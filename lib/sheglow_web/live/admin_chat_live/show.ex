@@ -218,7 +218,7 @@ defmodule SheglowWeb.AdminChatLive.Show do
                     <div class="p-3">
                       <p class="text-sm font-semibold text-gray-900">{msg.suggested_product_name}</p>
                       <p class="mt-0.5 text-sm font-bold text-gray-700">
-                        KES {SheglowWeb.Format.price(msg.suggested_product_price)}
+                        UGX {SheglowWeb.Format.price(msg.suggested_product_price)}
                       </p>
                       <a
                         href={"/products/#{msg.suggested_product_slug}"}
@@ -282,7 +282,7 @@ defmodule SheglowWeb.AdminChatLive.Show do
                   <% end %>
                   <div class="min-w-0 flex-1">
                     <p class="truncate text-sm font-semibold text-gray-900">{p.name}</p>
-                    <p class="text-xs text-gray-500">KES {SheglowWeb.Format.price(p.base_price)}</p>
+                    <p class="text-xs text-gray-500">UGX {SheglowWeb.Format.price(p.base_price)}</p>
                   </div>
                   <button
                     phx-click="suggest_product"

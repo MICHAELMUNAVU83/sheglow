@@ -48,7 +48,7 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host = System.get_env("PHX_HOST") || "kulolascloset.com"
+  host = System.get_env("PHX_HOST") || "sheglowug.com"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :sheglow, :dns_cluster_query, System.get_env("DNS_CLUSTER_QUERY")
@@ -57,7 +57,7 @@ if config_env() == :prod do
   # Override by setting the SITE_URL environment variable.
   config :sheglow,
     site_url: System.get_env("SITE_URL") || "https://#{host}",
-    admin_email: System.get_env("ADMIN_EMAIL") || "kulolacloset@gmail.com"
+    admin_email: System.get_env("ADMIN_EMAIL") || "admin@gmail.com"
 
   config :sheglow, SheglowWeb.Endpoint,
     url: [host: host, port: 443, scheme: "https"],

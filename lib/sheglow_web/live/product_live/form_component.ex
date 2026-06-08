@@ -336,10 +336,10 @@ defmodule SheglowWeb.ProductLive.FormComponent do
           <div class="grid grid-cols-2 gap-4">
             <%!-- Base price --%>
             <div>
-              <label class="mb-1.5 block text-sm font-semibold text-gray-700">Base Price (Ksh)</label>
+              <label class="mb-1.5 block text-sm font-semibold text-gray-700">Base Price (UGX)</label>
               <div class="flex items-center overflow-hidden rounded-lg border border-gray-200 bg-white transition focus-within:border-gray-400">
                 <span class="select-none border-r border-gray-200 bg-gray-50 px-3.5 py-2.5 text-sm text-gray-400">
-                  Ksh
+                  UGX
                 </span>
                 <input
                   type="number"
@@ -525,7 +525,7 @@ defmodule SheglowWeb.ProductLive.FormComponent do
                 id={@form[:shipping_returns].id}
                 phx-debounce="blur"
                 rows="3"
-                placeholder="e.g. Free standard shipping on orders over Ksh 5,000. Returns accepted within 30 days..."
+                placeholder="e.g. Free standard shipping on orders over UGX 5,000. Returns accepted within 30 days..."
                 class="w-full rounded-lg border border-gray-200 bg-white px-3.5 py-2.5 text-sm text-gray-900 placeholder-gray-400 transition focus:border-gray-400 focus:outline-none focus:ring-0"
               >{@form[:shipping_returns].value}</textarea>
               <.error :for={msg <- Enum.map(@form[:shipping_returns].errors, &translate_error/1)}>

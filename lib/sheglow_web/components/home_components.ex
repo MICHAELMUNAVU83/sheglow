@@ -335,11 +335,7 @@ defmodule SheglowWeb.HomeComponents do
 
         <%!-- Logo --%>
         <a href="/" class="flex items-center gap-2.5">
-          <img
-            src="/images/sheglow-logo.png"
-            alt="Sheglow"
-            class="h-9 w-9 rounded-full object-cover object-top shadow-sm ring-1 ring-black/5"
-          />
+          <img src="/images/sheglow-logo.png" alt="Sheglow" class="h-9 w-9  object-cover object-top" />
           <span class="brand-logo text-2xl text-gray-900 sm:text-3xl">
             SheGlow UG<span class="text-[#C8001F]">.</span>
           </span>

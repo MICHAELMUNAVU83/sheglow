@@ -321,7 +321,9 @@ defmodule SheglowWeb.ProductLive.Show do
           <p class="mt-4 text-base text-gray-600">{@product.description}</p>
 
           <div class="mt-6 flex flex-wrap items-center gap-5 text-base">
-            <span class="text-xl font-bold text-gray-900">Ksh {@product.base_price}</span>
+            <span class="text-xl font-bold text-gray-900">
+              UGX {SheglowWeb.Format.price(@product.base_price)}
+            </span>
 
             <%= if @collection do %>
               <span class="flex items-center gap-1.5 text-gray-500">

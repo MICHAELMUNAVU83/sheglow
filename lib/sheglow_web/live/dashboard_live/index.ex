@@ -263,7 +263,7 @@ defmodule SheglowWeb.DashboardLive.Index do
           <div>
             <p class="text-sm font-medium text-red-200">{greeting()}, welcome back ✨</p>
             <h1 class="mt-1 font-serif text-3xl font-bold tracking-tight">
-              Sheglow's Closet
+              SheGlow UG
             </h1>
             <p class="mt-2 text-sm text-red-200 max-w-xs">
               Here's what's happening in your store today. Fashion .
@@ -274,7 +274,7 @@ defmodule SheglowWeb.DashboardLive.Index do
           <div class="flex-shrink-0 rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm border border-white/20">
             <p class="text-xs font-semibold uppercase tracking-widest text-red-200">Total Revenue</p>
             <p class="mt-1 font-serif text-3xl font-bold tabular-nums">
-              KES {@total_revenue |> fmt()}
+              UGX {@total_revenue |> fmt()}
             </p>
             <p class="mt-1 text-xs text-red-200">
               {@total_orders} confirmed {if @total_orders == 1, do: "order", else: "orders"}
@@ -303,7 +303,7 @@ defmodule SheglowWeb.DashboardLive.Index do
         />
         <.kpi_card
           label="Avg. Order"
-          value={"KES #{fmt(@avg_order_value)}"}
+          value={"UGX #{fmt(@avg_order_value)}"}
           sub="per transaction"
           icon="💎"
           accent="bg-amber-50 border-amber-100"
@@ -330,7 +330,7 @@ defmodule SheglowWeb.DashboardLive.Index do
               <p class="text-xs text-gray-400">Last 30 days · confirmed orders only</p>
             </div>
             <span class="rounded-full bg-[#C8001F]/10 px-3 py-1 text-xs font-semibold text-[#C8001F]">
-              KES {fmt(@total_revenue)}
+              UGX {fmt(@total_revenue)}
             </span>
           </div>
           <div class="px-6 pb-6 pt-2">
@@ -430,7 +430,7 @@ defmodule SheglowWeb.DashboardLive.Index do
                     <p class="truncate font-mono text-[10px] text-gray-400">{order.reference}</p>
                   </div>
                   <div class="text-right flex-shrink-0">
-                    <p class="text-xs font-bold text-gray-900">KES {fmt(order.total_amount)}</p>
+                    <p class="text-xs font-bold text-gray-900">UGX {fmt(order.total_amount)}</p>
                     <span class={[
                       "inline-flex items-center gap-1 rounded-full px-1.5 py-0.5 text-[9px] font-semibold capitalize",
                       status_pill(order.status)

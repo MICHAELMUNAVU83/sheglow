@@ -33,7 +33,7 @@ defmodule SheglowWeb.OldProductLive.Index do
        |> assign(:page_title, product.name)
        |> assign(
          :meta_description,
-         "#{String.slice(product.description || "", 0, 150)} — Shop #{product.name} at Sheglow's Closet."
+         "#{String.slice(product.description || "", 0, 150)} — Shop #{product.name} at SheGlow UG."
        )
        |> assign(:og_image, product.main_image || "/images/sheglow-logo.png")
        |> assign(:product, product)
@@ -262,7 +262,11 @@ defmodule SheglowWeb.OldProductLive.Index do
       <.footer />
 
       <%!-- ── Floating Chat Widget ── --%>
-      <div id="chat-widget" phx-hook="ChatPersist" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+      <div
+        id="chat-widget"
+        phx-hook="ChatPersist"
+        class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
+      >
         <%!-- Chat panel --%>
         <%= if @chat_open do %>
           <div
@@ -273,7 +277,12 @@ defmodule SheglowWeb.OldProductLive.Index do
             <div class="flex items-center gap-3 bg-gray-900 px-4 py-3.5">
               <div class="flex h-8 w-8 items-center justify-center rounded-full bg-[#C8001F] text-white">
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
                 </svg>
               </div>
               <div class="flex-1">
@@ -285,7 +294,12 @@ defmodule SheglowWeb.OldProductLive.Index do
                 class="rounded-lg p-1 text-gray-400 transition hover:bg-white/10 hover:text-white"
               >
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
@@ -325,7 +339,7 @@ defmodule SheglowWeb.OldProductLive.Index do
                               {msg.suggested_product_name}
                             </p>
                             <p class="mt-1 text-sm font-bold text-gray-800">
-                              KES {SheglowWeb.Format.price(msg.suggested_product_price)}
+                              UGX {SheglowWeb.Format.price(msg.suggested_product_price)}
                             </p>
                             <div class="mt-3 flex flex-col gap-2">
                               <button
@@ -381,11 +395,7 @@ defmodule SheglowWeb.OldProductLive.Index do
 
             <%!-- Input --%>
             <div class="border-t border-gray-100 p-3">
-              <.form
-                for={%{}}
-                phx-submit="send_chat_message"
-                class="space-y-2"
-              >
+              <.form for={%{}} phx-submit="send_chat_message" class="space-y-2">
                 <%!-- Name field — inside the form so it's never reset by re-renders --%>
                 <%= if @chat_session_id == nil do %>
                   <input
@@ -412,7 +422,12 @@ defmodule SheglowWeb.OldProductLive.Index do
                     class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-gray-900 text-white transition hover:bg-gray-700"
                   >
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -434,11 +449,21 @@ defmodule SheglowWeb.OldProductLive.Index do
           >
             <%= if @chat_open do %>
               <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             <% else %>
               <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
               </svg>
             <% end %>
           </button>

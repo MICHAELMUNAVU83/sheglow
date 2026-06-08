@@ -156,7 +156,7 @@ defmodule SheglowWeb.TestimonialLive.Show do
                 <p class="text-sm text-gray-400">{@testimonial.product.slug}</p>
               </div>
               <span class="text-sm font-semibold text-gray-700">
-                Ksh {@testimonial.product.base_price}
+                UGX {SheglowWeb.Format.price(@testimonial.product.base_price)}
               </span>
               <svg
                 class="h-4 w-4 flex-shrink-0 text-gray-400"

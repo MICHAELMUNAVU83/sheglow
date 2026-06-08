@@ -12,10 +12,10 @@ config :sheglow,
   generators: [timestamp_type: :utc_datetime],
   # Public-facing site URL used in emails and links.
   # Override with the SITE_URL env var in production (see config/runtime.exs).
-  site_url: "https://kulolascloset.com",
+  site_url: "https://sheglowug.com",
   # Admin email that receives new-order notifications.
   # Must be a real deliverable address. Override with ADMIN_EMAIL env var.
-  admin_email: "kulolacloset@gmail.com"
+  admin_email: "admin@gmail.com"
 
 # Configures the endpoint
 config :sheglow, SheglowWeb.Endpoint,

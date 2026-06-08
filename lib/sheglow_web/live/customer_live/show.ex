@@ -133,7 +133,7 @@ defmodule SheglowWeb.CustomerLive.Show do
       <div class="grid grid-cols-3 gap-4">
         <div class="overflow-hidden rounded-3xl border border-[#C8001F]/20 bg-[#C8001F]/5 p-5">
           <p class="text-xs font-semibold uppercase tracking-widest text-[#C8001F]/70">Total Spent</p>
-          <p class="mt-2 font-serif text-2xl font-bold text-[#C8001F]">KES {fmt(@customer.total_spent)}</p>
+          <p class="mt-2 font-serif text-2xl font-bold text-[#C8001F]">UGX {fmt(@customer.total_spent)}</p>
         </div>
         <div class="overflow-hidden rounded-3xl border border-gray-100 bg-white p-5 shadow-sm">
           <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">Paid Orders</p>
@@ -186,7 +186,7 @@ defmodule SheglowWeb.CustomerLive.Show do
                         ×{item["total_ordered"]}
                       </span>
                       <p class="mt-1 text-xs font-semibold text-gray-900">
-                        KES {fmt((item["price"] || 0) * item["total_ordered"])}
+                        UGX {fmt((item["price"] || 0) * item["total_ordered"])}
                       </p>
                     </div>
                   </div>
@@ -225,7 +225,7 @@ defmodule SheglowWeb.CustomerLive.Show do
                       </p>
                     </div>
                     <div class="text-right">
-                      <p class="text-sm font-bold text-gray-900">KES {fmt(order.total_amount)}</p>
+                      <p class="text-sm font-bold text-gray-900">UGX {fmt(order.total_amount)}</p>
                     </div>
                     <.link
                       navigate={"/admin/orders/#{order.id}"}

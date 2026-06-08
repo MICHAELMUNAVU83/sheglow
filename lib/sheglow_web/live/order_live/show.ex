@@ -169,7 +169,7 @@ defmodule SheglowWeb.OrderLive.Show do
                         Qty: {item["quantity"] || 1}
                       </span>
                       <span class="text-sm font-bold text-gray-900">
-                        KES {fmt((item["price"] || 0) * (item["quantity"] || 1))}
+                        UGX {fmt((item["price"] || 0) * (item["quantity"] || 1))}
                       </span>
                     </div>
                   </div>
@@ -179,7 +179,7 @@ defmodule SheglowWeb.OrderLive.Show do
             <div class="border-t border-gray-100 bg-gray-50/60 px-6 py-5 space-y-2.5">
               <div class="flex justify-between text-sm text-gray-500">
                 <span>Subtotal</span>
-                <span>KES {fmt(subtotal(@order.items))}</span>
+                <span>UGX {fmt(subtotal(@order.items))}</span>
               </div>
               <div class="flex justify-between text-sm text-gray-500">
                 <span>Shipping</span>
@@ -187,7 +187,7 @@ defmodule SheglowWeb.OrderLive.Show do
               </div>
               <div class="flex justify-between border-t border-gray-200 pt-2.5 text-base font-bold text-gray-900">
                 <span>Total</span>
-                <span class="text-[#C8001F]">KES {fmt(@order.total_amount)}</span>
+                <span class="text-[#C8001F]">UGX {fmt(@order.total_amount)}</span>
               </div>
             </div>
           </div>

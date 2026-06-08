@@ -250,7 +250,7 @@ defmodule SheglowWeb.OrderLive.Index do
                       </span>
                     </td>
                     <td class="px-5 py-3.5">
-                      <span class="text-sm font-bold text-gray-900">KES {fmt(order.total_amount)}</span>
+                      <span class="text-sm font-bold text-gray-900">UGX {fmt(order.total_amount)}</span>
                     </td>
                     <td class="px-5 py-3.5">
                       <span class={["inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold capitalize", status_color(order.status)]}>

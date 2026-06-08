@@ -10,11 +10,11 @@ defmodule Sheglow.AppConfig do
   Returns the public site URL (no trailing slash).
 
   Configurable via:
-    - `config :sheglow, site_url: \"https://kulolascloset.com\"` in config files
+    - `config :sheglow, site_url: \"https://sheglowug.com\"` in config files
     - `SITE_URL` environment variable at runtime (prod)
   """
   def site_url do
-    Application.get_env(:sheglow, :site_url, "https://kulolascloset.com")
+    Application.get_env(:sheglow, :site_url, "https://sheglowug.com")
     |> String.trim_trailing("/")
   end
 
@@ -26,6 +26,6 @@ defmodule Sheglow.AppConfig do
     - `ADMIN_EMAIL` environment variable at runtime (prod)
   """
   def admin_email do
-    Application.get_env(:sheglow, :admin_email, "kulolacloset@gmail.com")
+    Application.get_env(:sheglow, :admin_email, "admin@gmail.com")
   end
 end

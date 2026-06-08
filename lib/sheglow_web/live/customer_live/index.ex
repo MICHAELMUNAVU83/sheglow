@@ -138,7 +138,7 @@ defmodule SheglowWeb.CustomerLive.Index do
                     </span>
                   </td>
                   <td class="px-5 py-3.5">
-                    <span class="text-sm font-bold text-gray-900">KES {fmt(customer.total_spent)}</span>
+                    <span class="text-sm font-bold text-gray-900">UGX {fmt(customer.total_spent)}</span>
                   </td>
                   <td class="px-5 py-3.5">
                     <span class="text-xs text-gray-400">{format_date(customer.inserted_at)}</span>

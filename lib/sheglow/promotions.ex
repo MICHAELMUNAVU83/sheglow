@@ -67,7 +67,7 @@ defmodule Sheglow.Promotions do
   def validate_code(_), do: {:error, "Please enter a promo code."}
 
   @doc """
-  Calculate discount amount (in KSH cents/minor units) from a promo and subtotal.
+  Calculate discount amount in UGX from a promo and subtotal.
   """
   def calc_discount(%PromoCode{discount_percent: pct}, subtotal) when is_integer(subtotal) do
     round(subtotal * pct / 100)

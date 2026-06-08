@@ -121,7 +121,7 @@ function renderDrawer() {
                 <button onclick="window._cartDrawerQty('${item.key}', ${(item.quantity || 1) + 1})"
                   class="flex h-5 w-5 items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 hover:text-black">+</button>
               </div>
-              <span class="text-sm font-semibold text-gray-900">KES ${formatPrice(linePrice)}</span>
+              <span class="text-sm font-semibold text-gray-900">UGX ${formatPrice(linePrice)}</span>
             </div>
           </div>
         </div>

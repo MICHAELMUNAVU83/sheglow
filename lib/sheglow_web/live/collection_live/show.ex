@@ -230,7 +230,9 @@ defmodule SheglowWeb.CollectionLive.Show do
 
                 <%!-- Price --%>
                 <td class="px-6 py-4">
-                  <span class="text-sm font-semibold text-gray-900">Ksh {product.base_price}</span>
+                  <span class="text-sm font-semibold text-gray-900">
+                    UGX {SheglowWeb.Format.price(product.base_price)}
+                  </span>
                 </td>
 
                 <%!-- Badge --%>

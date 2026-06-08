@@ -355,7 +355,7 @@ defmodule SheglowWeb.BundleLive.Show do
                 <%!-- Price --%>
                 <td class="px-6 py-4">
                   <span class="text-sm font-semibold text-gray-900">
-                    Ksh {item.product.base_price}
+                    UGX {SheglowWeb.Format.price(item.product.base_price)}
                   </span>
                 </td>
 

@@ -1,19 +1,19 @@
-# Sheglow's Closet
+# SheGlow UG
 
-A full-featured e-commerce platform for Sheglow's Closet — a Kenyan fashion brand offering everyday luxury clothing. Built with [Phoenix LiveView](https://hexdocs.pm/phoenix_live_view) and [Ecto](https://hexdocs.pm/ecto).
+A full-featured e-commerce platform for SheGlow UG — a Kenyan fashion brand offering everyday luxury clothing. Built with [Phoenix LiveView](https://hexdocs.pm/phoenix_live_view) and [Ecto](https://hexdocs.pm/ecto).
 
 ---
 
 ## Tech Stack
 
-| Layer        | Technology                            |
-|--------------|---------------------------------------|
+| Layer        | Technology                                       |
+| ------------ | ------------------------------------------------ |
 | Framework    | [Phoenix](https://phoenixframework.org) (Elixir) |
-| UI           | Phoenix LiveView + Tailwind CSS       |
-| Database     | PostgreSQL via Ecto                   |
-| Payments     | Paystack                              |
-| Email        | Nexus API (custom branded HTML)       |
-| File Uploads | Local filesystem (`priv/static/uploads`) |
+| UI           | Phoenix LiveView + Tailwind CSS                  |
+| Database     | PostgreSQL via Ecto                              |
+| Payments     | Paystack                                         |
+| Email        | Nexus API (custom branded HTML)                  |
+| File Uploads | Local filesystem (`priv/static/uploads`)         |
 
 ---
 
@@ -50,16 +50,16 @@ Visit [http://localhost:4000](http://localhost:4000) for the storefront and [htt
 
 Key values can be overridden at runtime via environment variables:
 
-| Variable      | Default                         | Purpose                              |
-|---------------|---------------------------------|--------------------------------------|
-| `DATABASE_URL` | (set in `dev.exs`)             | PostgreSQL connection string         |
-| `SECRET_KEY_BASE` | (generated)               | Phoenix secret key                   |
-| `PHX_HOST`    | `example.com`                   | Production hostname                  |
-| `SITE_URL`    | `https://kulolascloset.com`     | Absolute base URL for emails & links |
-| `ADMIN_EMAIL` | `kulolacloset@gmail.com`        | Recipient for admin order alerts     |
-| `PAYSTACK_SECRET_KEY` | —                     | Paystack secret key (server-side)    |
-| `PAYSTACK_PUBLIC_KEY` | —                     | Paystack public key (client-side)    |
-| `NEXUS_API_KEY` | —                             | Nexus transactional email API key    |
+| Variable              | Default                 | Purpose                              |
+| --------------------- | ----------------------- | ------------------------------------ |
+| `DATABASE_URL`        | (set in `dev.exs`)      | PostgreSQL connection string         |
+| `SECRET_KEY_BASE`     | (generated)             | Phoenix secret key                   |
+| `PHX_HOST`            | `example.com`           | Production hostname                  |
+| `SITE_URL`            | `https://sheglowug.com` | Absolute base URL for emails & links |
+| `ADMIN_EMAIL`         | `admin@gmail.com`       | Recipient for admin order alerts     |
+| `PAYSTACK_SECRET_KEY` | —                       | Paystack secret key (server-side)    |
+| `PAYSTACK_PUBLIC_KEY` | —                       | Paystack public key (client-side)    |
+| `NEXUS_API_KEY`       | —                       | Nexus transactional email API key    |
 
 Set these in `config/runtime.exs` for production or export them as shell variables.
 
@@ -71,9 +71,9 @@ Log in at `/users/log_in` with your admin credentials. Public registration is di
 
 Default seed credentials (change after first login):
 
-| Email                   | Password      | Role        |
-|-------------------------|---------------|-------------|
-| michael@sheglow.co.ke    | Sheglow2026!   | super_admin |
+| Email                 | Password     | Role        |
+| --------------------- | ------------ | ----------- |
+| michael@sheglow.co.ke | Sheglow2026! | super_admin |
 
 See [Admin Help](/admin/help) inside the panel for a full guide to every section.
 
@@ -137,8 +137,8 @@ mix assets.deploy
 mix ecto.migrate
 
 # Start with production config
-PHX_HOST=kulolascloset.com \
-SITE_URL=https://kulolascloset.com \
+PHX_HOST=sheglowug.com \
+SITE_URL=https://sheglowug.com \
 SECRET_KEY_BASE=<generated> \
 DATABASE_URL=<postgres-url> \
 mix phx.server

@@ -136,7 +136,7 @@ defmodule SheglowWeb.ProductLive.Index do
               <%!-- Price --%>
               <td class="px-5 py-3.5">
                 <span class="text-sm font-semibold text-gray-900">
-                  Ksh {product.base_price}
+                  UGX {SheglowWeb.Format.price(product.base_price)}
                 </span>
               </td>
 

@@ -83,7 +83,7 @@ const ChartHook = {
 
 /** Apply live JS callbacks/formatters to server-provided options */
 function deepMergeCallbacks(type, opts) {
-  const kshFmt = (v) => `KES ${Number(v).toLocaleString()}`;
+  const ugxFmt = (v) => `UGX ${Number(v).toLocaleString()}`;
 
   // Always inject responsive + maintainAspectRatio
   opts.responsive           = true;
@@ -95,7 +95,7 @@ function deepMergeCallbacks(type, opts) {
   opts.plugins.tooltip.callbacks = {
     label: (ctx) => {
       const val = ctx.parsed?.y ?? ctx.parsed?.x ?? ctx.raw;
-      return typeof val === "number" ? ` ${kshFmt(val)}` : ` ${val}`;
+      return typeof val === "number" ? ` ${ugxFmt(val)}` : ` ${val}`;
     },
   };
 
@@ -104,12 +104,12 @@ function deepMergeCallbacks(type, opts) {
     if (type === "line" && opts.scales.y) {
       opts.scales.y.ticks = opts.scales.y.ticks || {};
       opts.scales.y.ticks.callback = (v) =>
-        v >= 1000 ? `KES ${(v / 1000).toFixed(0)}k` : `KES ${v}`;
+        v >= 1000 ? `UGX ${(v / 1000).toFixed(0)}k` : `UGX ${v}`;
     }
     if (type === "bar" && opts.scales.x) {
       opts.scales.x.ticks = opts.scales.x.ticks || {};
       opts.scales.x.ticks.callback = (v) =>
-        v >= 1000 ? `KES ${(v / 1000).toFixed(0)}k` : `KES ${v}`;
+        v >= 1000 ? `UGX ${(v / 1000).toFixed(0)}k` : `UGX ${v}`;
     }
   }
 
@@ -135,7 +135,7 @@ function defaultOptions(type) {
           label: (ctx) => {
             const val = ctx.parsed.y ?? ctx.parsed;
             return typeof val === "number"
-              ? ` KES ${val.toLocaleString()}`
+              ? ` UGX ${val.toLocaleString()}`
               : ` ${val}`;
           },
         },
@@ -156,7 +156,7 @@ function defaultOptions(type) {
           ticks: {
             font: { size: 11 },
             color: "#9ca3af",
-            callback: (v) => `KES ${(v / 1000).toFixed(0)}k`,
+            callback: (v) => `UGX ${(v / 1000).toFixed(0)}k`,
           },
           beginAtZero: true,
         },
@@ -174,7 +174,7 @@ function defaultOptions(type) {
           ticks: {
             font: { size: 11 },
             color: "#9ca3af",
-            callback: (v) => `KES ${(v / 1000).toFixed(0)}k`,
+            callback: (v) => `UGX ${(v / 1000).toFixed(0)}k`,
           },
           beginAtZero: true,
         },
