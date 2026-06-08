@@ -12,6 +12,42 @@ default_shipping =
 
 volume_options = ["30ml", "50ml", "100ml"]
 
+cleanser_hero =
+  "https://images.unsplash.com/photo-1686208561557-bb22083ec4df?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+cleanser_secondary =
+  "https://images.unsplash.com/photo-1763622499218-37fdfc7a590a?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+toner_hero =
+  "https://images.unsplash.com/photo-1738721797050-f4f1fb63acd7?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+moisturizer_hero =
+  "https://images.unsplash.com/photo-1705515626848-eac484a533e6?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+moisturizer_secondary =
+  "https://images.unsplash.com/photo-1768235146417-4ccc5befad83?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+sunscreen_hero =
+  "https://images.unsplash.com/photo-1623676714504-edd78728155e?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+sunscreen_secondary =
+  "https://images.unsplash.com/photo-1744115617230-839654c3d5bd?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+sunscreen_studio =
+  "https://images.unsplash.com/photo-1738721796968-bc0c4a55960d?fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+serum_hero =
+  "https://images.unsplash.com/photo-1774999118349-43d391a89b7a?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+serum_secondary =
+  "https://images.unsplash.com/photo-1741896135512-084b251887f7?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+serum_niacinamide =
+  "https://images.unsplash.com/photo-1777450793530-99a0e7b7fc53?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
+serum_clear =
+  "https://images.unsplash.com/photo-1764694187721-a5035d777fdf?auto=format&fit=crop&fm=jpg&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&ixlib=rb-4.1.0&q=60&w=3000"
+
 # Clear existing seed data so seeds can be re-run safely
 Repo.delete_all(Sheglow.Testimonials.Testimonial)
 Repo.delete_all(Sheglow.BundleItems.BundleItem)
@@ -27,35 +63,35 @@ collections = [
   %{
     title: "Cleansers",
     slug: "cleansers",
-    image: "/images/products/red-denim-coord-set.jpg",
+    image: cleanser_hero,
     position: 1,
     is_active: true
   },
   %{
     title: "Toners",
     slug: "toners",
-    image: "/images/products/navy-vest-wide-leg-jeans.jpg",
+    image: toner_hero,
     position: 2,
     is_active: true
   },
   %{
     title: "Moisturizers",
     slug: "moisturizers",
-    image: "/images/products/chocolate-knit-coord-set.jpg",
+    image: moisturizer_hero,
     position: 3,
     is_active: true
   },
   %{
     title: "Sun Protection",
     slug: "sun-protection",
-    image: "/images/products/olive-linen-coord-set.jpg",
+    image: sunscreen_hero,
     position: 4,
     is_active: true
   },
   %{
     title: "Treatment Serums",
     slug: "treatment-serums",
-    image: "/images/products/denim-maxi-skirt-front.jpg",
+    image: serum_hero,
     position: 5,
     is_active: true
   }
@@ -83,7 +119,7 @@ products = [
     description:
       "A creamy daily cleanser that lifts away dirt, sunscreen, and excess oil without leaving skin tight. Built for the first step of a calm, balanced glow routine.",
     base_price: 28_000,
-    image: "/images/products/red-denim-coord-set.jpg",
+    image: cleanser_hero,
     badge_label: "Bestseller",
     badge_color: "rose",
     is_featured: true,
@@ -103,7 +139,7 @@ products = [
     description:
       "A lightweight gel cleanser made to refresh oily and combination skin while helping reduce the look of congestion and shine.",
     base_price: 32_000,
-    image: "/images/products/orange-denim-coord-set.jpg",
+    image: cleanser_secondary,
     badge_label: "New",
     badge_color: "green",
     is_featured: true,
@@ -123,7 +159,7 @@ products = [
     description:
       "A nourishing cleanser that supports the skin barrier while gently removing buildup. Leaves skin soft, smooth, and ready for toner.",
     base_price: 34_000,
-    image: "/images/products/sage-linen-coord-set.jpg",
+    image: cleanser_secondary,
     badge_label: nil,
     badge_color: nil,
     is_featured: false,
@@ -143,7 +179,7 @@ products = [
     description:
       "A daily balancing toner infused with a soft floral feel that helps refresh the skin after cleansing and prep it for serum absorption.",
     base_price: 26_000,
-    image: "/images/products/navy-pinstripe-blazer-set.jpg",
+    image: toner_hero,
     badge_label: "Featured",
     badge_color: "rose",
     is_featured: true,
@@ -163,7 +199,7 @@ products = [
     description:
       "A soothing hydrating toner that helps soften the look of dehydration and leaves skin feeling comforted and supple.",
     base_price: 29_000,
-    image: "/images/products/olive-linen-coord-set.jpg",
+    image: toner_hero,
     badge_label: "New",
     badge_color: "green",
     is_featured: false,
@@ -183,7 +219,7 @@ products = [
     description:
       "A refining toner that helps freshen pores, reduce excess oil feel, and leave the skin looking clearer and more balanced.",
     base_price: 31_000,
-    image: "/images/products/black-grey-layered-knit-set.jpg",
+    image: serum_secondary,
     badge_label: nil,
     badge_color: nil,
     is_featured: false,
@@ -203,7 +239,7 @@ products = [
     description:
       "A lightweight moisturizer that locks in hydration and gives skin a smooth, healthy-looking finish for all-day comfort.",
     base_price: 38_000,
-    image: "/images/products/chocolate-knit-coord-set.jpg",
+    image: moisturizer_hero,
     badge_label: "Bestseller",
     badge_color: "rose",
     is_featured: true,
@@ -223,7 +259,7 @@ products = [
     description:
       "A richer face cream made for skin that needs more comfort, helping support a soft, nourished, and resilient glow.",
     base_price: 44_000,
-    image: "/images/products/burgundy-pleated-maxi-skirt.jpg",
+    image: moisturizer_secondary,
     badge_label: "Featured",
     badge_color: "rose",
     is_featured: true,
@@ -243,7 +279,7 @@ products = [
     description:
       "A breathable gel-cream that hydrates without heaviness and helps keep the skin feeling fresh through the day.",
     base_price: 36_000,
-    image: "/images/products/grey-layered-knit-set-front.jpg",
+    image: moisturizer_secondary,
     badge_label: "New",
     badge_color: "green",
     is_featured: false,
@@ -263,7 +299,7 @@ products = [
     description:
       "A broad-spectrum daily sunscreen that helps protect your glow with a smooth finish that layers well under makeup.",
     base_price: 42_000,
-    image: "/images/products/olive-wide-leg-pants-white-crop.jpg",
+    image: sunscreen_studio,
     badge_label: "Bestseller",
     badge_color: "rose",
     is_featured: true,
@@ -283,7 +319,7 @@ products = [
     description:
       "A shine-controlled sunscreen designed for oily and combination skin, helping protect without a greasy after-feel.",
     base_price: 40_000,
-    image: "/images/products/navy-wide-leg-pants-bandeau.jpg",
+    image: sunscreen_hero,
     badge_label: nil,
     badge_color: nil,
     is_featured: false,
@@ -303,7 +339,7 @@ products = [
     description:
       "A lightweight body sunscreen for everyday wear that helps keep arms, shoulders, and exposed skin comfortably protected.",
     base_price: 35_000,
-    image: "/images/products/olive-wide-leg-pants-white-crop.jpg",
+    image: sunscreen_secondary,
     badge_label: "New",
     badge_color: "green",
     is_featured: false,
@@ -323,7 +359,7 @@ products = [
     description:
       "A brightening serum that helps revive dull-looking skin and support a more radiant, even-looking complexion.",
     base_price: 48_000,
-    image: "/images/products/red-cardigan-black-wide-leg.jpg",
+    image: serum_hero,
     badge_label: "Featured",
     badge_color: "rose",
     is_featured: true,
@@ -343,7 +379,7 @@ products = [
     description:
       "A balancing serum that helps refine the appearance of pores, calm visible oiliness, and leave skin feeling smoother.",
     base_price: 46_000,
-    image: "/images/products/black-wide-leg-pants-floral-top.jpg",
+    image: serum_niacinamide,
     badge_label: nil,
     badge_color: nil,
     is_featured: false,
@@ -363,7 +399,7 @@ products = [
     description:
       "A hydration-first serum that helps skin feel plumper, softer, and visibly refreshed throughout the day.",
     base_price: 45_000,
-    image: "/images/products/denim-maxi-skirt-front.jpg",
+    image: serum_clear,
     badge_label: "Bestseller",
     badge_color: "rose",
     is_featured: true,
@@ -426,7 +462,7 @@ IO.puts(
     title: "The SheGlow Everyday Routine",
     description:
       "A complete starter routine with a cleanser, toner, moisturizer, and sunscreen to help you nourish, protect, and maintain your glow every day.",
-    image: "/images/products/olive-linen-coord-set.jpg",
+    image: cleanser_hero,
     is_active: true
   })
   |> Repo.insert()

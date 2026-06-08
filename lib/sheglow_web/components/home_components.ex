@@ -621,9 +621,9 @@ defmodule SheglowWeb.HomeComponents do
       </div>
 
       <%!-- ── DESKTOP: side-by-side layout ── --%>
-      <div class="hidden lg:grid lg:min-h-[700px] lg:grid-cols-2">
+      <div class="hidden lg:grid lg:min-h-[600px] lg:grid-cols-2">
         <!-- Left Content -->
-        <div class="relative flex flex-col justify-center overflow-hidden bg-[var(--brand-surface-soft)] px-16 py-16 xl:px-24">
+        <div class="relative flex flex-col justify-center overflow-hidden bg-[var(--brand-surface-soft)] px-16  xl:px-24">
           <!-- Background Marquee Text -->
           <div class="pointer-events-none absolute inset-0 flex items-center overflow-hidden opacity-[0.04]">
             <div class="animate-marquee-slow flex whitespace-nowrap">
@@ -702,12 +702,12 @@ defmodule SheglowWeb.HomeComponents do
                   <img
                     src="/images/main.jpeg"
                     alt="Spring collection"
-                    class="h-full w-full object-cover"
+                    class="h-[80vh] w-full object-cover"
                   />
                 </div>
               <% else %>
                 <%= for img <- @hero_images do %>
-                  <div class="swiper-slide h-full">
+                  <div class="swiper-slide h-[80vh]">
                     <img src={img.image} alt={img.alt} class="h-full w-full object-cover" />
                   </div>
                 <% end %>
