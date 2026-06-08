@@ -4,6 +4,12 @@ A full-featured e-commerce platform for SheGlow UG, built for a Ugandan fashion 
 
 ---
 
+
+<img width="1440" height="814" alt="Screenshot 2026-06-08 at 09 35 14" src="https://github.com/user-attachments/assets/38807b06-95fb-47fc-b33a-4586c8342c2e" />
+<img width="1440" height="814" alt="Screenshot 2026-06-08 at 09 35 08" src="https://github.com/user-attachments/assets/dbb5f975-ced9-4316-9cb6-203aac8dfa36" />
+<img width="1440" height="814" alt="Screenshot 2026-06-08 at 09 35 02" src="https://github.com/user-attachments/assets/26c38a2a-24c7-466d-a40a-f9928c128f66" />
+
+
 ## Tech Stack
 
 | Layer        | Technology                                       |
